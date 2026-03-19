@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<!-- saved from url=(0059)file:///Users/radhikachhabra/Downloads/serena_y2k_blog.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Satisfy&family=Special+Elite&family=Nunito:wght@400;700&display=swap');
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #1a0a2e;
+    background-image:
+      radial-gradient(ellipse at 20% 50%, #3d0a5e44 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 20%, #5e0a3d44 0%, transparent 50%);
+    font-family: 'Nunito', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Ctext y='16' font-size='16'%3E✦%3C/text%3E%3C/svg%3E"), auto;
+  }
+
+  /* Sparkles */
+  .sparkle {
+    position: fixed;
+    pointer-events: none;
+    font-size: 14px;
+    animation: twinkle 2s infinite;
+    z-index: 0;
+  }
+  @keyframes twinkle {
+    0%, 100% { opacity: 0.2; transform: scale(0.8) rotate(0deg); }
+    50% { opacity: 1; transform: scale(1.2) rotate(180deg); }
+  }
+
+  .page-wrapper {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 12px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Header */
+  .site-header {
+    background: linear-gradient(135deg, #ff69b4, #ff1493, #c71585, #ff69b4);
+    background-size: 300% 300%;
+    animation: gradShift 4s ease infinite;
+    border: 3px solid #ffb6d9;
+    border-radius: 16px;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 10px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 30px #ff69b488, inset 0 0 40px rgba(255,255,255,0.15);
+  }
+  @keyframes gradShift {
+    0%,100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+  .site-header::before {
+    content: '✨ ★ ✨ ★ ✨ ★ ✨ ★ ✨ ★ ✨';
+    display: block;
+    font-size: 13px;
+    letter-spacing: 4px;
+    color: #fff9;
+    margin-bottom: 8px;
+    animation: marqueeText 8s linear infinite;
+  }
+  @keyframes marqueeText {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+  }
+
+  .site-title {
+    font-family: 'Pacifico', cursive;
+    font-size: 42px;
+    color: #fff;
+    text-shadow: 2px 2px 0 #c71585, 4px 4px 0 #8b0057, 0 0 20px #ffb6d9;
+    letter-spacing: 2px;
+  }
+  .site-subtitle {
+    font-family: 'Satisfy', cursive;
+    color: #ffe4f0;
+    font-size: 16px;
+    margin-top: 4px;
+    letter-spacing: 1px;
+  }
+  .header-img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    background: linear-gradient(135deg, #ffb6d9, #ff69b4, #c71585);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+    margin-bottom: 8px;
+    box-shadow: 0 0 15px #ff69b4;
+    animation: float 3s ease-in-out infinite;
+  }
+  @keyframes float {
+    0%,100% { transform: translateY(0px); }
+    50% { transform: translateY(-6px); }
+  }
+
+  /* Mood bar */
+  .mood-bar {
+    background: #2a0a3e;
+    border: 2px solid #ff69b4;
+    border-radius: 8px;
+    padding: 8px 16px;
+    margin-bottom: 10px;
+    font-size: 13px;
+    color: #ffb6d9;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .mood-bar span { color: #ff69b4; font-weight: 700; }
+  .blink { animation: blink 1s step-end infinite; }
+  @keyframes blink { 50% { opacity: 0; } }
+
+  /* Layout grid */
+  .main-grid {
+    display: grid;
+    grid-template-columns: 1fr 220px;
+    gap: 10px;
+  }
+
+  /* Blog posts */
+  .posts-col {}
+  .post {
+    background: #1e0a30;
+    border: 2px solid #ff69b4;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 12px #ff69b422;
+    transition: box-shadow 0.2s;
+  }
+  .post:hover { box-shadow: 0 0 20px #ff69b466; }
+
+  .post-header {
+    background: linear-gradient(90deg, #ff1493, #c71585);
+    padding: 8px 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .post-title {
+    font-family: 'Pacifico', cursive;
+    color: #fff;
+    font-size: 16px;
+  }
+  .post-date {
+    font-size: 11px;
+    color: #ffe4f0aa;
+    font-family: 'Special Elite', cursive;
+  }
+
+  .post-body {
+    padding: 14px;
+    font-size: 13.5px;
+    color: #e8c0d8;
+    line-height: 1.7;
+    position: relative;
+  }
+  .post-body p { margin-bottom: 8px; }
+  .post-body .mood-tag {
+    display: inline-block;
+    background: #3d0a5e;
+    border: 1px solid #ff69b4;
+    border-radius: 20px;
+    padding: 2px 10px;
+    font-size: 11px;
+    color: #ff69b4;
+    margin-right: 6px;
+    margin-bottom: 4px;
+  }
+
+  /* Subtle wrong notes */
+  .off-note {
+    color: #c8a0b8;
+    font-family: 'Special Elite', cursive;
+    font-size: 12.5px;
+    border-left: 2px solid #9b4070;
+    padding-left: 10px;
+    margin-top: 8px;
+    font-style: italic;
+    opacity: 0.85;
+  }
+  .strikethrough { text-decoration: line-through; color: #9b4070; }
+  .correction { color: #ff69b4; }
+
+  /* Comments */
+  .comments-section {
+    border-top: 1px dashed #ff69b466;
+    padding: 10px 14px;
+    background: #180824;
+  }
+  .comments-title { font-size: 11px; color: #ff69b4; font-weight: 700; margin-bottom: 6px; letter-spacing: 1px; text-transform: uppercase; }
+  .comment {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 6px;
+  }
+  .comment-user { font-size: 11px; color: #ff69b4; font-weight: 700; min-width: 80px; }
+  .comment-text { font-size: 11px; color: #c8a0b8; }
+
+  /* Sidebar */
+  .sidebar {}
+  .sidebar-widget {
+    background: #1e0a30;
+    border: 2px solid #ff69b4;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    overflow: hidden;
+  }
+  .widget-title {
+    background: linear-gradient(90deg, #ff1493, #c71585);
+    padding: 6px 12px;
+    font-family: 'Pacifico', cursive;
+    color: #fff;
+    font-size: 13px;
+  }
+  .widget-body {
+    padding: 10px 12px;
+    font-size: 12px;
+    color: #e8c0d8;
+  }
+  .widget-body a { color: #ff69b4; text-decoration: none; }
+  .widget-body a:hover { text-decoration: underline; }
+
+  /* About me */
+  .about-pic {
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(135deg, #ff69b4, #c71585, #8b0057);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    margin-bottom: 8px;
+  }
+  .about-list { list-style: none; }
+  .about-list li { margin-bottom: 4px; display: flex; gap: 6px; }
+  .about-list li::before { content: '♥'; color: #ff69b4; }
+
+  /* Top 8 */
+  .friends-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+  }
+  .friend-card {
+    background: #2a0a3e;
+    border: 1px solid #ff69b466;
+    border-radius: 6px;
+    padding: 5px;
+    text-align: center;
+    font-size: 10px;
+    color: #ffb6d9;
+    cursor: pointer;
+    transition: border-color 0.2s;
+  }
+  .friend-card:hover { border-color: #ff69b4; }
+  .friend-icon { font-size: 22px; display: block; margin-bottom: 2px; }
+
+  /* Hidden friend */
+  .friend-card.missing {
+    border-style: dashed;
+    border-color: #9b407066;
+    color: #9b4070;
+    opacity: 0.7;
+  }
+  .friend-card.missing .friend-icon { opacity: 0.4; }
+
+  /* Music player */
+  .player {
+    background: #0d0118;
+    border-radius: 8px;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .play-btn {
+    width: 28px; height: 28px;
+    background: #ff1493;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: background 0.2s;
+  }
+  .play-btn:hover { background: #c71585; }
+  .song-info { flex: 1; overflow: hidden; }
+  .song-title { font-size: 11px; color: #ff69b4; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .song-bar { height: 3px; background: #3d0a5e; border-radius: 2px; margin-top: 4px; }
+  .song-progress { height: 100%; width: 60%; background: #ff1493; border-radius: 2px; animation: progress 8s linear infinite; }
+  @keyframes progress { 0% { width: 0%; } 100% { width: 100%; } }
+
+  /* Glitter dividers */
+  .divider { text-align: center; font-size: 13px; color: #ff69b499; letter-spacing: 6px; margin: 6px 0; }
+
+  /* Visitor counter */
+  .counter { text-align: center; font-family: 'Special Elite', cursive; font-size: 11px; color: #9b4070; margin-top: 6px; }
+  .counter span { color: #ff69b4; font-size: 16px; letter-spacing: 2px; display: block; }
+
+  /* Footer */
+  .site-footer {
+    text-align: center;
+    padding: 12px;
+    font-size: 11px;
+    color: #9b4070;
+    font-family: 'Special Elite', cursive;
+    margin-top: 4px;
+  }
+  .site-footer span { color: #ff69b4; }
+
+  /* Media queries */
+  @media (max-width: 560px) {
+    .main-grid { grid-template-columns: 1fr; }
+    .site-title { font-size: 28px; }
+  }
+
+  /* Hidden message — barely visible */
+  .ghost-text {
+    color: #2a0a3e;
+    font-size: 9px;
+    text-align: center;
+    letter-spacing: 0.5px;
+    margin-top: 2px;
+    font-family: 'Special Elite', cursive;
+    user-select: none;
+    transition: color 0.4s;
+  }
+  .ghost-text:hover { color: #9b4070; cursor: text; }
+
+  /* Scratch effect on a word */
+  .redacted {
+    background: #c71585;
+    color: #c71585;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: inline;
+  }
+  .redacted:hover, .redacted.revealed {
+    background: transparent;
+    color: #ff69b4;
+  }
+</style>
+</head>
+<body>
+
+<!-- Background sparkles -->
+<div class="sparkle" style="top:5%;left:3%;animation-delay:0s">✦</div>
+<div class="sparkle" style="top:15%;left:90%;animation-delay:0.7s">★</div>
+<div class="sparkle" style="top:35%;left:8%;animation-delay:1.2s">✨</div>
+<div class="sparkle" style="top:55%;left:95%;animation-delay:0.3s">✦</div>
+<div class="sparkle" style="top:70%;left:2%;animation-delay:1.8s">★</div>
+<div class="sparkle" style="top:85%;left:88%;animation-delay:0.5s">✨</div>
+<div class="sparkle" style="top:45%;left:50%;animation-delay:2s;font-size:8px">✦</div>
+
+<div class="page-wrapper">
+
+  <!-- HEADER -->
+  <div class="site-header">
+    <div class="header-img">🌸</div>
+    <div class="site-title">serena's world ♥</div>
+    <div class="site-subtitle">just a girl living her best life ~ since 2003 ~</div>
+  </div>
+  <div class="ghost-text">you weren't supposed to find this</div>
+
+  <!-- MOOD BAR -->
+  <div class="mood-bar">
+    <span>current mood:</span> 🌟 sooooo happy!!
+    <span>music:</span> kelly clarkson - since u been gone
+    <span>weather:</span> ☀️ sunny!!
+    <span class="blink">★ ONLINE ★</span>
+  </div>
+
+  <div class="main-grid">
+    <!-- POSTS COLUMN -->
+    <div class="posts-col">
+
+      <!-- Post 1 -->
+      <div class="post">
+        <div class="post-header">
+          <div class="post-title">omg best day EVER 🌸</div>
+          <div class="post-date">Thursday, October 14, 2004 — 4:17pm</div>
+        </div>
+        <div class="post-body">
+          <p>ok so today was literally the most amazing day!! jake totally smiled at me in the hallway AND held the door open which everyone knows means he likes me lol 😍😍 </p>
+          <p>me and <span class="redacted" onclick="this.classList.toggle(&#39;revealed&#39;)" title="click to reveal">████</span> spent all lunch talking about the dance next week. we're gonna wear matching pink!!!!</p>
+          <div class="off-note">she said she can't make it anymore. she didn't say why. she never says why anymore.</div>
+          <p style="margin-top:8px">anyway school was SO boring except for english where we read that poem about the girl who disappears and mr. henderson asked if anyone related to it and i almost raised my hand lol jk jk 😂</p>
+          <div style="margin-top:8px">
+            <span class="mood-tag">mood: ecstatic!!!!</span>
+            <span class="mood-tag">boys: 🙈</span>
+            <span class="mood-tag">bff things</span>
+          </div>
+        </div>
+        <div class="comments-section">
+          <div class="comments-title">💬 comments (4)</div>
+          <div class="comment"><span class="comment-user">xo_brianna_xo:</span><span class="comment-text">omg jake is so cute!! you guys would be perfect 😭💕</span></div>
+          <div class="comment"><span class="comment-user">dancequeen04:</span><span class="comment-text">wait who are u going to the dance with?? spill!!!</span></div>
+          <div class="comment"><span class="comment-user">deleted_user:</span><span class="comment-text" style="opacity:0.4;font-style:italic">[this comment has been removed]</span></div>
+          <div class="comment"><span class="comment-user">serena_luv:</span><span class="comment-text">SERENA you need to call me back. please. — M</span></div>
+        </div>
+      </div>
+
+      <!-- Post 2 -->
+      <div class="post">
+        <div class="post-header">
+          <div class="post-title">quiz results + random stuff 💅</div>
+          <div class="post-date">Monday, October 4, 2004 — 9:42pm</div>
+        </div>
+        <div class="post-body">
+          <p>i took that quiz "what kind of girl are you" and got THE SOCIAL BUTTERFLY 🦋 which is so accurate omg. if u wanna take it go to quizilla.com!!</p>
+          <p>also got my nails done today w/ mom - baby pink with little stars!! she tried to ask me stuff about school which was <span class="strikethrough">really annoying</span> <span class="correction">totally fine lol</span>. anyway i just talked about the dance and she seemed happy.</p>
+          <div class="off-note">i've been practicing what to say before she asks the real questions. i've gotten pretty good at it.</div>
+          <p style="margin-top:8px">currently obsessed with: hilary duff, lip gloss from claire's, and pretending everything is <span class="strikethrough">fine</span> <span class="correction">amazing!!!</span> 🌸✨</p>
+          <div style="margin-top:8px">
+            <span class="mood-tag">mood: giggly!!</span>
+            <span class="mood-tag">nails: 💅 pink stars</span>
+          </div>
+        </div>
+        <div class="comments-section">
+          <div class="comments-title">💬 comments (6)</div>
+          <div class="comment"><span class="comment-user">xo_brianna_xo:</span><span class="comment-text">those nails sound SO cute!! post a pic!!</span></div>
+          <div class="comment"><span class="comment-user">jake_m_02:</span><span class="comment-text">hey serena 👋</span></div>
+          <div class="comment"><span class="comment-user">serena:</span><span class="comment-text">JAKE OMG HI 😭😭😭 (brianna i'm literally dying rn)</span></div>
+        </div>
+      </div>
+
+      <!-- Post 3 — older, slightly different tone -->
+      <div class="post">
+        <div class="post-header">
+          <div class="post-title">summer is over 🍂</div>
+          <div class="post-date">Wednesday, September 1, 2004 — 11:58pm</div>
+        </div>
+        <div class="post-body">
+          <p>back to school tomorrow. everyone keeps asking if i had a good summer and i say yes because it's easier.</p>
+          <p>new year, new serena!! i made a list of goals: be more social, smile more, don't let ppl see when ur sad, join more clubs so u have less time to think. standard stuff 💕</p>
+          <div class="off-note">august was the last time things were normal. i keep thinking if i just act like september is fine, it will eventually be fine. maybe that's how it works.</div>
+          <p style="margin-top:8px">anyway!! so excited for fall and halloween and all of it!! life is literally so good 🌟🌟🌟</p>
+          <div style="margin-top:8px">
+            <span class="mood-tag">mood: fresh start!!</span>
+            <span class="mood-tag">goals: glow up era</span>
+          </div>
+        </div>
+        <div class="comments-section">
+          <div class="comments-title">💬 comments (2)</div>
+          <div class="comment"><span class="comment-user">xo_brianna_xo:</span><span class="comment-text">new year new us bestie!! we got this 💪</span></div>
+          <div class="comment"><span class="comment-user">m_writes:</span><span class="comment-text">i miss you. i know you don't want to talk about it but i'm here ok</span></div>
+        </div>
+      </div>
+
+      <div class="divider">✦ ★ ✦ ★ ✦ older entries ✦ ★ ✦ ★ ✦</div>
+
+    </div>
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+
+      <!-- About me -->
+      <div class="sidebar-widget">
+        <div class="widget-title">♥ about serena</div>
+        <div class="widget-body">
+          <div class="about-pic">🌸</div>
+          <ul class="about-list">
+            <li>serena c., age 16</li>
+            <li>sophomore @ westlake</li>
+            <li>loves: pink, glitter, lip gloss</li>
+            <li>hates: <span class="strikethrough">being alone</span> nothing tbh!!</li>
+            <li>currently: <span style="color:#ff69b4">living my best life!!</span></li>
+          </ul>
+          <div class="ghost-text" style="margin-top:6px">she doesn't know you can read these</div>
+        </div>
+      </div>
+
+      <!-- Music -->
+      <div class="sidebar-widget">
+        <div class="widget-title">🎵 now playing</div>
+        <div class="widget-body">
+          <div class="player">
+            <button class="play-btn" onclick="this.textContent = this.textContent === &#39;▶&#39; ? &#39;⏸&#39; : &#39;▶&#39;">⏸</button>
+            <div class="song-info">
+              <div class="song-title">Breakaway - Kelly Clarkson</div>
+              <div class="song-bar"><div class="song-progress"></div></div>
+            </div>
+          </div>
+          <div style="margin-top:6px;font-size:10px;color:#9b4070;font-style:italic">"I'll spread my wings and I'll learn how to fly..."</div>
+        </div>
+      </div>
+
+      <!-- Top 8 / Friends -->
+      <div class="sidebar-widget">
+        <div class="widget-title">★ my top 8</div>
+        <div class="widget-body">
+          <div class="friends-grid">
+            <div class="friend-card">
+              <span class="friend-icon">💖</span>
+              xo_brianna
+            </div>
+            <div class="friend-card">
+              <span class="friend-icon">🦋</span>
+              dancequeen04
+            </div>
+            <div class="friend-card">
+              <span class="friend-icon">🌟</span>
+              chelseaxoxo
+            </div>
+            <div class="friend-card">
+              <span class="friend-icon">🎀</span>
+              taylor_2004
+            </div>
+            <div class="friend-card missing" title="account not found">
+              <span class="friend-icon">?</span>
+              m_writes
+            </div>
+            <div class="friend-card">
+              <span class="friend-icon">💅</span>
+              glitter_grl
+            </div>
+            <div class="friend-card">
+              <span class="friend-icon">🌸</span>
+              pink.always
+            </div>
+            <div class="friend-card missing" title="removed">
+              <span class="friend-icon">?</span>
+              [removed]
+            </div>
+          </div>
+          <div style="margin-top:6px;font-size:10px;color:#9b4070;text-align:center;font-style:italic">2 spots empty since october</div>
+        </div>
+      </div>
+
+      <!-- Visitor counter -->
+      <div class="sidebar-widget">
+        <div class="widget-title">🔢 visitors</div>
+        <div class="widget-body">
+          <div class="counter">
+            you are visitor<br>
+            <span>0 0 0 4 8 2 0</span>
+          </div>
+          <div style="font-size:10px;color:#9b4070;text-align:center;margin-top:4px;font-style:italic">last visitor: 3:49am — who's up that late??</div>
+        </div>
+      </div>
+
+      <!-- Quote of the day -->
+      <div class="sidebar-widget">
+        <div class="widget-title">💬 quote of the week</div>
+        <div class="widget-body">
+          <div style="font-style:italic;color:#e8c0d8;font-size:12px;line-height:1.6">"She's so happy all the time, it's like she's made of light."</div>
+          <div style="font-size:10px;color:#9b4070;margin-top:4px">— overheard in the hallway 🌸</div>
+          <div class="ghost-text" style="margin-top:4px">they don't know what light costs</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="site-footer">
+    <div class="divider">✦ ★ ✦ ★ ✦ ★ ✦ ★ ✦</div>
+    <div>made with <span>♥</span> by serena ~ best viewed in internet explorer 6.0 ~ <span>800x600</span></div>
+    <div style="margin-top:4px">© 2004 serena's world. all rights reserved. <span>do not steal!!</span></div>
+    <div class="ghost-text" style="margin-top:8px;font-size:8px">if you found the hidden words, you already know more than anyone at westlake does. — S</div>
+  </div>
+
+</div>
+
+<script>
+  // Reveal redacted text
+  document.querySelectorAll('.redacted').forEach(el => {
+    el.title = 'click to reveal';
+  });
+
+  // Visitor counter ticks up slowly
+  const counter = document.querySelector('.counter span');
+  let count = 4817;
+  setInterval(() => {
+    if (Math.random() < 0.3) {
+      count++;
+      const s = count.toString().padStart(7, '0').split('').join(' ');
+      counter.textContent = s;
+    }
+  }, 5000);
+</script>
+
+
+</body></html>
